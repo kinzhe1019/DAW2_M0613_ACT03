@@ -1,0 +1,84 @@
+/*
+    APARTAT 2 · El full d'estils
+    Crea el fitxer estils.css i enllaça'l des de les dues pàgines
+    (registre.html i processa.php). Mínims:
+    1. El formulari centrat o amb una amplada màxima.
+    2. Els label a sobre del seu camp, cadascun a la seva línia.
+    3. Tots els camps de text amb la mateixa amplada.
+    4. El botó amb color de fons i que canviï en passar-hi el ratolí.
+    5. Els fieldset separats visualment els uns dels altres.
+    6. La taula del resum amb la capçalera de color i les files alternes d'un altre color.
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eef2f2;
+}
+
+h1, .intro {
+    text-align: center;
+}
+
+/* 1. amplada maxima i margin auto per centrar-ho (tambe la pagina del resultat) */
+form, main {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* 2. amb display block cada label va a la seva linia, a sobre del camp */
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+/* 3. tots els camps de text fan la mateixa amplada */
+input[type="text"], input[type="email"], input[type="password"],
+input[type="date"], input[type="tel"], select {
+    width: 100%;
+    padding: .5rem;
+    box-sizing: border-box;
+}
+
+/* 4. el boto amb color de fons, i amb :hover canvia quan hi passes el ratoli */
+button {
+    background: #02736f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #c2661f;
+}
+
+/* 5. els fieldset separats amb margin */
+fieldset {
+    margin-bottom: 20px;
+    background: white;
+}
+
+/* 6. la taula: els th de color i les files parells d'un altre color */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background: #02736f;
+    color: white;
+}
+
+td {
+    background: white;
+}
+
+tr:nth-child(even) td {
+    background: #d9ecea;
+}

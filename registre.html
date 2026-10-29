@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="utf-8">
+    <title>Registre - BitBazar</title>
+    <link rel="stylesheet" href="estils.css">
+</head>
+<body>
+<!--
+    ACTIVITAT 3 · Formularis i tractament de dades
+    El registre d'una botiga en línia (BitBazar)
+
+    APARTAT 1 · El formulari HTML
+    Crea el fitxer registre.html amb el formulari de registre.
+    - A l'etiqueta form: action="processa.php" i method="post".
+    - Cada camp ha de tenir name, que és el que fa arribar la dada al servidor.
+    - Els camps agrupats amb fieldset i la seva legend:
+        Dades personals: nom, cognoms, data de naixement, telèfon (text, date, tel)
+        Dades del compte: correu, nom d'usuari, contrasenya, repetir contrasenya (email, text, password)
+        Adreça: carrer i número, població, codi postal (text)
+        Preferències: tipus de client (select), com ens has conegut (radio),
+                      butlletí i acceptar condicions (checkbox)
+-->
+
+    <h1>BitBazar</h1>
+    <p class="intro">Crea el teu compte per comprar material informàtic.</p>
+
+    <!-- action: on van les dades. method: com hi van (amb post no es veuen a la url) -->
+    <form action="processa.php" method="post">
+
+        <!-- el for del label es igual que l'id del camp, i el name es el que arriba al php -->
+        <fieldset>
+            <legend>Dades personals</legend>
+
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom">
+
+            <label for="cognoms">Cognoms</label>
+            <input type="text" id="cognoms" name="cognoms">
+
+            <label for="naixement">Data de naixement</label>
+            <input type="date" id="naixement" name="naixement">
+
+            <label for="telefon">Telèfon</label>
+            <input type="tel" id="telefon" name="telefon">
+        </fieldset>
+
+        <fieldset>
+            <legend>Dades del compte</legend>
+
+            <label for="correu">Correu electrònic</label>
+            <input type="email" id="correu" name="correu">
+
+            <!-- ampliacio 1: repetir el correu per comprovar que l'ha escrit be -->
+            <label for="correu2">Repetir correu electrònic</label>
+            <input type="email" id="correu2" name="correu2">
+
+            <label for="usuari">Nom d'usuari</label>
+            <input type="text" id="usuari" name="usuari">
+
+            <label for="clau">Contrasenya</label>
+            <input type="password" id="clau" name="clau">
+
+            <label for="clau2">Repetir contrasenya</label>
+            <input type="password" id="clau2" name="clau2">
+        </fieldset>
+
+        <fieldset>
+            <legend>Adreça</legend>
+
+            <label for="carrer">Carrer i número</label>
+            <input type="text" id="carrer" name="carrer">
+
+            <label for="poblacio">Població</label>
+            <input type="text" id="poblacio" name="poblacio">
+
+            <label for="cp">Codi postal</label>
+            <input type="text" id="cp" name="cp">
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferències</legend>
+
+            <!-- la primera opcio te el value buit, aixi al php se si no n'ha triat cap -->
+            <label for="tipus">Tipus de client</label>
+            <select id="tipus" name="tipus">
+                <option value="">-- Tria'n un --</option>
+                <option value="particular">Particular</option>
+                <option value="empresa">Empresa</option>
+                <option value="estudiant">Estudiant</option>
+            </select>
+
+            <!-- els radio del mateix grup tenen el mateix name i un value diferent -->
+            <p class="grup">Com ens has conegut?</p>
+            <label class="linia"><input type="radio" name="origen" value="xarxes"> Xarxes socials</label>
+            <label class="linia"><input type="radio" name="origen" value="amics"> Un amic o amiga</label>
+            <label class="linia"><input type="radio" name="origen" value="cercador"> Cercador</label>
+
+            <!-- les caselles tambe porten value. si no es marquen no s'envien -->
+            <p class="grup">Altres</p>
+            <label class="linia"><input type="checkbox" name="butlleti" value="si"> Vull rebre ofertes</label>
+            <label class="linia"><input type="checkbox" name="condicions" value="si"> Accepto les condicions</label>
+        </fieldset>
+
+        <button type="submit">Crear el compte</button>
+
+    </form>
+</body>
+</html>
